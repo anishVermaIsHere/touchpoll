@@ -2,7 +2,7 @@ import axios from 'axios';
 import { URL_PATH } from '../../routes/constants/routeslinks';
 
 const {SIGNIN,SIGNUP,PROFILE,ACCOUNT,CHANGE_PWD}=URL_PATH;
-axios.defaults.baseURL=process.env.REACT_APP_BACKENDURL;
+axios.defaults.baseURL=process.env.REACT_APP_BASEURL;
 
 export const tokenInit=()=>{
     let localData=localStorage.getItem('user-info');

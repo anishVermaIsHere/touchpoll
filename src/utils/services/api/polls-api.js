@@ -3,7 +3,7 @@ import {URL_PATH} from '../../routes/constants/routeslinks';
 
 const {ALL_POLLS, MANAGE_POLL, CREATE_POLL, EDIT_POLL,DELETE_POLL, SUBMIT_POLL, USER_POLL}=URL_PATH;
 
-axios.defaults.baseURL=process.env.REACT_APP_BACKENDURL;
+axios.defaults.baseURL=process.env.REACT_APP_BASEURL;
 
 // fetch all polls from database
 export const fetchPolls=()=>{

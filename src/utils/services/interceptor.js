@@ -1,6 +1,6 @@
 import axios from "axios";
 export function tokenInterceptor() {
-    axios.defaults.baseURL = process.env.REACT_APP_BACKENDURL;
+    axios.defaults.baseURL = process.env.REACT_APP_BASEURL;
     const requestInterceptor = axios.interceptors.request.use(
         (request) => {
             let localData = localStorage.getItem('user-info');

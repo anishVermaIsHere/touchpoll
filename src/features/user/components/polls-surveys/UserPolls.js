@@ -213,7 +213,7 @@ const UserPolls = () => {
                   {poll.options.map((opt, index) => {
                     return (
                       <>
-                        <Paper key={'paper' + index} elevation={3}
+                        <Paper key={'option'+index} elevation={3}
                           sx={{
                             margin: '0.5rem 0',
                             padding: '0.8rem',
