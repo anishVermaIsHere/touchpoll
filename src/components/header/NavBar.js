@@ -1,9 +1,8 @@
 import * as React from 'react';
 import '../../assets/styles/PollApp.css';
-import { AppBar, Box, Button, IconButton, ListItemIcon, Toolbar, Typography, useMediaQuery } from '@mui/material';
+import { AppBar, Box, Button, IconButton, Toolbar, Typography, useMediaQuery } from '@mui/material';
 import Drawer from './Drawer';
 import MenuIcon from '@mui/icons-material/Menu';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import Logo from '../../assets/images/hand-click-1299.svg';
 import { NavLink } from 'react-router-dom';
 import { URL_PATH, MAIN_MENU } from '../../utils/routes/constants/routeslinks';

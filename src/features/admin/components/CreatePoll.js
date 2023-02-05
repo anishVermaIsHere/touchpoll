@@ -3,12 +3,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { useFormik, FieldArray, FormikProvider } from 'formik';
 import { createPollSchema } from '../../../utils/validation/validation-schema';
-import { createPoll } from '../../../utils/redux/slices/polls/poll-slice';
-import AlertBox from '../../../utils/widgets/AlertBox';
-import {
-    Box, Button, Fab, FormControl,
-    Grid, Input, Typography, TextField
-} from '@mui/material';
+import {Box, Button, Fab, FormControl, Input, Typography, TextField} from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { TabPanel } from './ManagePoll';
 import dayjs from 'dayjs';
@@ -17,8 +12,6 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { handleSnackBar } from '../../../utils/redux/slices/snackbar/snackbar-slice';
 import { pollCreate } from '../../../utils/services/api/polls-api';
-// import { uploadFile} from '../../../utils/services/firebase/upload-image';
-
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../../../utils/services/firebase/auth/config";
 
@@ -29,14 +22,6 @@ const CreatePoll = () => {
     const [image, setImage] = useState(null);
     const [url, setUrl] = useState(null);
     const [add, setAdd] = useState(false);
-    const [toast, setToast] = useState({
-        switch: false,
-        message: '',
-        style: ''
-    });
-    const toastClose = () => {
-        setToast({ switch: false, message: '', style: '' })
-    }
 
     const message = useSelector(state => state.pollSlice.message);
     const tomorrow = new Date(new Date().getTime() + (24 * 60 * 60 * 1000));

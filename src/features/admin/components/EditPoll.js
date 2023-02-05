@@ -4,15 +4,10 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import { useFormik, FieldArray, FormikProvider } from 'formik';
 import { createPollSchema } from '../../../utils/validation/validation-schema';
 import { editPoll } from '../../../utils/redux/slices/polls/poll-slice';
-import AlertBox from '../../../utils/widgets/AlertBox';
-import {Navigate, useLocation, useParams} from 'react-router-dom';
-import {
-    Box, Button, Fab, FormControl,
-    Grid, Input, Typography, TextField
-} from '@mui/material';
+import {Navigate,  useParams} from 'react-router-dom';
+import {Box, Button, Fab, FormControl,Input, Typography, TextField} from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { TabPanel } from './ManagePoll';
-import dayjs from 'dayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';

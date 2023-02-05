@@ -16,7 +16,6 @@
     "caniuse-lite": "^1.0.30001450",
     "chart.js": "^3.7.1",
     "copy-to-clipboard": "^3.3.3",
-    "dayjs": "^1.11.7",
     "firebase": "^9.11.0",
     "formik": "^2.2.9",
     "jsonwebtoken": "^9.0.0",

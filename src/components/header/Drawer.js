@@ -1,5 +1,5 @@
 import React from 'react';
-import { useMediaQuery, Container, Divider, Paper, Box, MenuItem, MenuList, Typography, ListItemIcon } from '@mui/material';
+import { Container, Divider, Paper, MenuItem, MenuList, ListItemIcon } from '@mui/material';
 import { SIDEBAR_MENU, URL_PATH } from '../../utils/routes/constants/routeslinks';
 import { NavLink } from 'react-router-dom';
 import { CONSTANTS } from '../../utils/constants/constants';
@@ -11,7 +11,6 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
 const Drawer = (props) => {
-  const matches = useMediaQuery('(min-width:764px)');
   const auth = useSelector(state => state.userSlice.auth);
   const { SIGNIN, SIGNUP, USER_MENU } = CONSTANTS;
   const drawer = {

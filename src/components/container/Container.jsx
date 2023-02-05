@@ -1,7 +1,5 @@
 import React from 'react';
-import { Container as BoxContainer } from '@mui/material';
 import AppRoutes from '../../utils/routes/AppRoutes';
-
 
 
 const Container = () => {

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useTheme } from '@mui/material/styles';
-import { CartesianGrid, LineChart, Line, XAxis, YAxis, Label, ResponsiveContainer,BarChart,Bar,Tooltip } from 'recharts';
-import Title from './Title';
+import { CartesianGrid, Line, XAxis, YAxis, Label, ResponsiveContainer,BarChart,Bar,Tooltip } from 'recharts';
 
 
 

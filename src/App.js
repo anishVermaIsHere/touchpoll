@@ -87,7 +87,7 @@ const App = ()=> {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         // ...
-        if(location.pathname=={SIGNIN}){
+        if(location.pathname==={SIGNIN}){
           navigate('*');
         }
       } else {

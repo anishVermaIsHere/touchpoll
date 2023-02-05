@@ -32,7 +32,7 @@ const AppRoutes = () => {
 
   return (
     <Routes>
-      <Route path={HOME} element={<Home />} />
+      <Route path='/' element={<Home />} />
       <Route path={URL_PATH.ABOUT} element={<About />} />
       <Route path='/user'>
         <Route index element='' />

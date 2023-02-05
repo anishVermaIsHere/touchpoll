@@ -1,5 +1,5 @@
-import React,{useEffect, useState} from 'react';
-import { Box, Container,Paper,Grid,Link } from '@mui/material';
+import React,{useEffect} from 'react';
+import { Box, Container,Paper,Grid } from '@mui/material';
 import Chart from '../Chart';
 import PollCard from '../PollCard';
 import PollTable from '../PollTable';

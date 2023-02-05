@@ -5,7 +5,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 
 export const URL_PATH={
-    HOME:"/",
+    HOME:'/',
     SIGNIN:'/user/signin',
     SIGNUP:'/user/register',
     SIGNOUT:'/user/signout',
