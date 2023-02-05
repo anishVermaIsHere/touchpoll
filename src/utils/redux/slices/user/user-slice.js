@@ -59,7 +59,7 @@ const userSlice = createSlice({
             state.loading = true;
         })
         builder.addCase(signIn.fulfilled, (state, action) => {
-            window.location.reload();
+            // window.location.reload();
             state.auth.message = action.payload.message;
             state.auth.name = action.payload.name;
             localStorage.setItem('user-info', JSON.stringify({
