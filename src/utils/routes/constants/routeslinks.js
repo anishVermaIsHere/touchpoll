@@ -3,7 +3,6 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
-
 export const URL_PATH={
     HOME:'/',
     SIGNIN:'/user/signin',

@@ -23,7 +23,7 @@ export default function NavBar({
   const matches = useMediaQuery('(min-width:765px)');
   const auth = useSelector(state => state.userSlice.auth);
 
-  const { SIGNIN, SIGNUP } = CONSTANTS;
+  const { SIGNIN, SIGNUP} = CONSTANTS;
 
   const menuCls = {
     display: { xs: 'none', sm: 'block' },
@@ -52,7 +52,7 @@ export default function NavBar({
           {mobileOpen && matches == false ? <Drawer handleDrawerToggle={handleDrawerToggle} signOut={signOut} /> : ""}
           <Box sx={{ flexGrow: 1 }}>
             <NavLink
-              to='/'
+              to="/"
               style={{
                 fontSize: '1.3rem',
                 color: '#fff'

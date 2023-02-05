@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import {
   Box, Button, Card, CardContent, CardMedia, Paper, Typography, FormControl,
-  FormLabel, FormControlLabel, RadioGroup, Radio, Skeleton
+ FormControlLabel, RadioGroup, Radio, Skeleton
 } from '@mui/material/';
 import { NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,7 +14,11 @@ import LinearProgress from '@mui/material/LinearProgress';
 import randomcolor from 'randomcolor';
 import defaultImage from '../../../../assets/images/poll-default.jpg';
 import sadEmoji from '../../../../assets/images/sad-emoji.svg';
+import { URL_PATH } from '../../../../utils/routes/constants/routeslinks';
 
+
+
+const {HOME}=URL_PATH;
 const theme = createTheme({
   typography: {
     fontFamily: [
@@ -248,7 +252,7 @@ const UserPolls = () => {
             <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', padding: '100px 20px' }}>
               <img src={sadEmoji} style={{ height: '150px' }} />
               <Typography variant="h5" p={5}>This Poll is no longer </Typography>
-              <Button variant="outlined" sx={{ margin: 'auto' }} component={NavLink} to="/">Go to Home</Button>
+              <Button variant="outlined" sx={{ margin: 'auto' }} component={NavLink} to='/'>Go to Home</Button>
             </Box>
           </>
         }
