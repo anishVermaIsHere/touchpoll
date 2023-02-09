@@ -18,7 +18,7 @@ import { URL_PATH } from '../../../../utils/routes/constants/routeslinks';
 
 
 
-const {HOME}=URL_PATH;
+const {POLL_SECTION}=URL_PATH;
 const theme = createTheme({
   typography: {
     fontFamily: [
@@ -114,7 +114,7 @@ const UserPolls = () => {
       if (valid) {
         if (res.data.voted) {
           setDisable(true);
-          dispatch(handleSnackBar({ snackOpen: true, snackType: "error", snackMessage: "You already voted" }))
+          dispatch(handleSnackBar({ snackOpen: true, snackType: "error", snackMessage: "You have already voted" }))
         }
         else {
           setDisable(false);
@@ -143,7 +143,7 @@ const UserPolls = () => {
         setResultBar(false);
       }
       dispatch(handleSnackBar({ snackOpen: true, snackType: "success", snackMessage: res.data.message }))
-    }).catch(err => dispatch(handleSnackBar({ snackOpen: false, snackType: "error", snackMessage: err.message })));
+    }).catch(err =>err);
   }
 
   // side effect 
@@ -252,7 +252,7 @@ const UserPolls = () => {
             <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', padding: '100px 20px' }}>
               <img src={sadEmoji} style={{ height: '150px' }} />
               <Typography variant="h5" p={5}>This Poll is no longer </Typography>
-              <Button variant="outlined" sx={{ margin: 'auto' }} component={NavLink} to='/'>Go to Home</Button>
+              <Button variant="outlined" sx={{ margin: 'auto' }} component={NavLink} to={POLL_SECTION}>Go back</Button>
             </Box>
           </>
         }

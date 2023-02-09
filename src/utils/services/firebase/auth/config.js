@@ -9,13 +9,12 @@ import { getAuth } from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDLY7KkNUQ5hGsKn5TBNVi5kG5hx9MIrx4",
-  authDomain: "poll-survey.firebaseapp.com",
-  projectId: "poll-survey",
-  storageBucket: "poll-survey.appspot.com",
-  messagingSenderId: "657719749697",
-  appId: "1:657719749697:web:726208a91066a55e38aac0",
-  measurementId: "G-YC0WRM6GFG"
+  apiKey: "AIzaSyD-l0teCwPfUNycM_z7ekqNDSygeiyL6Uk",
+  authDomain: "touch-poll.firebaseapp.com",
+  projectId: "touch-poll",
+  storageBucket: "touch-poll.appspot.com",
+  messagingSenderId: "613317763217",
+  appId: "1:613317763217:web:8288532ecf49b9621a1f30"
 };
 
 // Initialize Firebase

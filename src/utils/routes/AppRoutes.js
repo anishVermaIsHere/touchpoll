@@ -37,7 +37,7 @@ const AppRoutes = () => {
       <Route path='/user'>
         <Route index element='' />
         <Route path='signin' element={auth.token==null?<SignIn />:<Navigate to={POLL_SECTION}/>} />
-        <Route path='register' element={auth.token==null?<SignUp />:<Navigate to={HOME}/>} />
+        <Route path='register' element={auth.token==null?<SignUp />:<Navigate to="/"/>} />
       </Route>
 
       <Route element={<Protected localData={localData} />}>

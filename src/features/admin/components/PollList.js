@@ -63,7 +63,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 
-const { EDIT_POLL, MANAGE_POLL} = URL_PATH;
+const { USER_POLL, EDIT_POLL, MANAGE_POLL} = URL_PATH;
 
 const PollList = () => {
 
@@ -140,7 +140,7 @@ const PollList = () => {
     }
 
     const copyLink=(event,id)=>{
-        const link=process.env.REACT_APP_BASE_URL+id;
+        const link=`${process.env.REACT_APP_DOMAIN}${USER_POLL}/${id}`
         copy(link);
         dispatch(handleSnackBar({ snackOpen: true, snackType: "info", snackMessage: "Link Copied"}))
     }

@@ -16,7 +16,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const Home = () => {
     const {background}=home;
-    const {SIGNIN,DEMO_POLL}=URL_PATH;
+    const {SIGNIN,POLL_SECTION}=URL_PATH;
     const token=useSelector(state=>state.userSlice.auth.token);
     return (
         <>
@@ -26,7 +26,7 @@ const Home = () => {
                     <Typography variant='h1' sx={{mb:5}}>
                         Live Polling
                     </Typography>
-                    <Button variant='contained' size='large' component={NavLink} to={token?DEMO_POLL:SIGNIN}>
+                    <Button variant='contained' size='large' component={NavLink} to={token?POLL_SECTION:SIGNIN}>
                        Get Started
                     </Button>
                 </Item>                
