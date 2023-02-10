@@ -134,11 +134,11 @@ const UserPolls = () => {
     const poll = { answer: e.target.value, pollid: params.id }
     const response = pollSubmit(poll);
     response.then(res => {
-      if (res.statusText == "OK") {
+      if (res.status == 200) {
         setDisable(true);
         setResultBar(true);
       }
-      if (res.statusText == "Forbidden") {
+      if (res.status == 403) {
         setDisable(true);
         setResultBar(false);
       }
