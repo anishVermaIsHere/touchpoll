@@ -14,7 +14,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { handleSnackBar } from '../../../utils/redux/slices/snackbar/snackbar-slice';
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../../../utils/services/firebase/auth/config";
-import { URL_PATH } from '../../../utils/routes/constants/routeslinks';
+import { URL_PATH } from '../../../config/constants/routeslinks';
 
 
 const {ALL_POLLS}=URL_PATH;

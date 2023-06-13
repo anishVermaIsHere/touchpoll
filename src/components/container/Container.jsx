@@ -1,18 +1,10 @@
-import React from 'react';
-import AppRoutes from '../../utils/routes/AppRoutes';
-
+import AppRoutes from '../../config/routes/AppRoutes';
 
 const Container = () => {
     return (
-        <div 
-        style={{        
-            minHeight:'1150px',        
-            margin:'80px 0'
-        }} 
-        >
+        <div style={{minHeight:'100vh', margin:'80px 0'}}>
             {AppRoutes()}
         </div>
-
     )
 }
 

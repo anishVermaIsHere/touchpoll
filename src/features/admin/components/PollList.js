@@ -17,7 +17,7 @@ import { pollDelete } from '../../../utils/services/api/polls-api';
 import { NavLink } from 'react-router-dom';
 import EmptyPage from '../../../utils/widgets/EmptyPage';
 import { handleSnackBar } from '../../../utils/redux/slices/snackbar/snackbar-slice';
-import { URL_PATH } from '../../../utils/routes/constants/routeslinks';
+import { URL_PATH } from '../../../config/constants/routeslinks';
 import copy from 'copy-to-clipboard';
 
 

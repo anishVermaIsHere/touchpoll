@@ -7,7 +7,7 @@ import {useDispatch} from 'react-redux';
 import { onAuthStateChanged, signOut } from "firebase/auth";  
 import {auth} from './utils/services/firebase/auth/config';
 import { handleAuthUser } from './utils/redux/slices/user/user-slice';
-import { URL_PATH } from './utils/routes/constants/routeslinks'
+import { URL_PATH } from './config/constants/routeslinks';
 import { handleSnackBar } from './utils/redux/slices/snackbar/snackbar-slice';
 
 

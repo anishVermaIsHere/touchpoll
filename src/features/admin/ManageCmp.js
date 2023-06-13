@@ -18,7 +18,7 @@ import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import EditPoll from '../admin/components/EditPoll';
-import { URL_PATH } from '../../utils/routes/constants/routeslinks';
+import { URL_PATH } from '../../config/constants/routeslinks';
 import { tabStyle, a11yProps} from './components/ManagePoll';
 import { useSelector } from 'react-redux';
 

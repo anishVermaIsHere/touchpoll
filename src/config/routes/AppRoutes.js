@@ -1,15 +1,15 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Home from '../../components/Home';
-import About from '../../components/About';
-import SignIn from '../../features/user/components/SignIn';
-import SignUp from '../../features/user/components/SignUp';
-import { URL_PATH } from './constants/routeslinks';
+import HomePage from "../../pages/HomePage";
+import AboutPage from '../../pages/AboutPage';
+import LoginPage from '../../pages/LoginPage';
+import RegisterPage from '../../pages/RegisterPage';
+import { URL_PATH } from '../constants/routeslinks';
 import UserPolls from '../../features/user/components/polls-surveys/UserPolls';
 import Protected from '../../features/user/components/Protected';
-import Error from '../widgets/Error';
+import Error from '../../utils/widgets/Error';
 import { useSelector } from 'react-redux';
-import { CONSTANTS } from '../constants/constants';
+import { CONSTANTS } from '../../utils/constants/constants';
 import UserProfile from '../../features/user/components/profile/UserProfile';
 import Dashboard from '../../features/admin/components/Dashboard';
 import DashboardCont from '../../features/admin/components/PollDashboard/DashboardCont';
@@ -20,6 +20,8 @@ import ManageCmp from '../../features/admin/ManageCmp';
 import PollSection from '../../features/user/components/polls-surveys/PollSection';
 import Result from '../../features/admin/components/Result';
 import Profile from '../../features/user/components/profile/Profile';
+
+
 
 export const { HOME, DASHBOARD, ALL_POLLS, MANAGE_POLL, CREATE_POLL, EDIT_POLL,
   POLL_SECTION, USER_POLL, RESULTS,ACCOUNT, PROFILE,PROFILE_MANAGE } = URL_PATH;
@@ -32,12 +34,12 @@ const AppRoutes = () => {
 
   return (
     <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path={URL_PATH.ABOUT} element={<About />} />
+      <Route path='/' element={<HomePage />} />
+      <Route path={URL_PATH.ABOUT} element={<AboutPage />} />
       <Route path='/user'>
         <Route index element='' />
-        <Route path='signin' element={auth.token==null?<SignIn />:<Navigate to={POLL_SECTION}/>} />
-        <Route path='register' element={auth.token==null?<SignUp />:<Navigate to="/"/>} />
+        <Route path='signin' element={auth.token==null?<LoginPage />:<Navigate to={POLL_SECTION}/>} />
+        <Route path='register' element={auth.token==null?<RegisterPage />:<Navigate to="/"/>} />
       </Route>
 
       <Route element={<Protected localData={localData} />}>
@@ -59,8 +61,6 @@ const AppRoutes = () => {
       </Route>
 
       <Route path='*' element={<Error errCode={CLIENT.CODE} errMessage={CLIENT.MSG} />} />
-
-
     </Routes>
   )
 }

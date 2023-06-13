@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { URL_PATH } from '../../routes/constants/routeslinks';
+import { URL_PATH } from '../../../config/constants/routeslinks';
 
 const {SIGNIN,SIGNUP,PROFILE,ACCOUNT,CHANGE_PWD}=URL_PATH;
 axios.defaults.baseURL=process.env.REACT_APP_BASEURL;

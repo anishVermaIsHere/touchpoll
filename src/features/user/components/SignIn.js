@@ -19,7 +19,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import GoogleIcon from '@mui/icons-material/Google';
 import FaFacebookF from '@mui/icons-material/Facebook';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { URL_PATH } from '../../../utils/routes/constants/routeslinks';
+import { URL_PATH } from '../../../config/constants/routeslinks';
 import { getAuth, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 import { signIn } from '../../../utils/redux/slices/user/user-slice';
 import { useDispatch, useSelector } from 'react-redux';

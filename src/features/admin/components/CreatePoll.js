@@ -38,7 +38,7 @@ const CreatePoll = () => {
                     let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                 },
                 (error) => {
-                    // console.log('error while uploading image...')
+                    console.log('error while uploading image...')
                 },
                 () => {
                     // Upload completed successfully, now we can get the download URL

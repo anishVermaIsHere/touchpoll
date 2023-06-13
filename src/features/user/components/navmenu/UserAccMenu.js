@@ -1,10 +1,11 @@
-import * as React from 'react';
-import {Button, Menu, MenuItem,Divider} from '@mui/material';
+import React from 'react';
+import {Button, Menu, MenuItem} from '@mui/material';
 import {AiFillCaretDown} from 'react-icons/ai';
 import { CONSTANTS } from '../../../../utils/constants/constants';
-import { PROFILE,ACCOUNT } from '../../../../utils/routes/AppRoutes';
+import { PROFILE } from '../../../../config/routes/AppRoutes';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+
 
 export default function UserAccMenu(props) {
   const {SIGNOUT,ACCOUNT}=CONSTANTS.USER_MENU;

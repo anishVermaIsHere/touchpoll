@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
-import {
-  Box, Button, Card, CardContent, CardMedia, Paper, Typography, FormControl,
- FormControlLabel, RadioGroup, Radio, Skeleton
-} from '@mui/material/';
+import {Box, Button, Card, CardContent, CardMedia, Paper, Typography, FormControl,
+  FormControlLabel, RadioGroup, Radio, Skeleton} from '@mui/material/';
 import { NavLink, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchOnePoll, pollSubmit } from '../../../../utils/services/api/polls-api';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
@@ -14,7 +12,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 import randomcolor from 'randomcolor';
 import defaultImage from '../../../../assets/images/poll-default.jpg';
 import sadEmoji from '../../../../assets/images/sad-emoji.svg';
-import { URL_PATH } from '../../../../utils/routes/constants/routeslinks';
+import { URL_PATH } from '../../../../config/constants/routeslinks';
 
 
 
@@ -77,7 +75,6 @@ const UserPolls = () => {
   const [pollState, setPollState] = useState({ poll: [], totalVotes: 0, loading: true });
   const [valid, setValid] = useState(false);
   const [disable, setDisable] = useState(false);
-  const message = useSelector(state => state.pollSlice.message);
   const [resultBar, setResultBar] = useState(false);
   const [selected, setSelected] = useState(null);
 
@@ -152,8 +149,6 @@ const UserPolls = () => {
     if (selected !== null) {
       getTotalVotes();
     }
-    else {
-    }
   }, [selected]);
 
 
@@ -174,7 +169,7 @@ const UserPolls = () => {
   const pollCard = (poll, ind) => {
     return <ThemeProvider theme={theme}>
       <Box sx={{ flexGrow: 1 }}>
-        {valid ? <Item key={poll.uid}>
+        {valid ? <Item elevation={0} key={poll.uid}>
           <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', boxShadow: 'none' }}>
             <Typography
               align='right'
@@ -250,7 +245,7 @@ const UserPolls = () => {
           :
           <>
             <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', padding: '100px 20px' }}>
-              <img src={sadEmoji} style={{ height: '150px' }} />
+              <img src={sadEmoji} style={{ height: '150px' }} alt='sad emoji'/>
               <Typography variant="h5" p={5}>This Poll is no longer </Typography>
               <Button variant="outlined" sx={{ margin: 'auto' }} component={NavLink} to={POLL_SECTION}>Go back</Button>
             </Box>

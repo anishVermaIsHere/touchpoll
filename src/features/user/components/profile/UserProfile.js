@@ -3,7 +3,7 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { Box, Container, Paper, Tabs, Tab, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { tabStyle, a11yProps } from '../../../admin/components/ManagePoll';
-import { PROFILE, PROFILE_MANAGE } from '../../../../utils/routes/AppRoutes';
+import { PROFILE, PROFILE_MANAGE } from '../../../../config/routes/AppRoutes';
 
 
 const UserProfile = () => {

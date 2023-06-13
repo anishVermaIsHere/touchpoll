@@ -11,7 +11,7 @@ const About = () => {
       </Typography>
 
       <Box>
-        <Paper elevation={1} sx={{ p: 3, display: 'flex', flexDirection:{xs:"column", md:"row"} }}>
+        <Paper elevation={0} sx={{  display: 'flex', flexDirection:{xs:"column", md:"row"} }}>
           <CardMedia
             component="img"
             height="300"

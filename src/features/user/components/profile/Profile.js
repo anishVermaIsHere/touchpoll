@@ -7,7 +7,7 @@ import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CloseIcon from '@mui/icons-material/Close';
 import { useNavigate, useHistory } from 'react-router-dom';
-import { URL_PATH } from '../../../../utils/routes/constants/routeslinks';
+import { URL_PATH } from '../../../../config/constants/routeslinks';
 import { useSelector, useDispatch } from 'react-redux';
 import { changePasswordSchema } from '../../../../utils/validation/validation-schema';
 import { handleSnackBar } from '../../../../utils/redux/slices/snackbar/snackbar-slice';

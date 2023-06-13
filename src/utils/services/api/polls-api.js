@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {URL_PATH} from '../../routes/constants/routeslinks';
+import {URL_PATH} from '../../../config/constants/routeslinks';
 
 const {ALL_POLLS, MANAGE_POLL, CREATE_POLL, EDIT_POLL,DELETE_POLL, SUBMIT_POLL, USER_POLL}=URL_PATH;
 

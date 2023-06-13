@@ -8,7 +8,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import { NavLink } from 'react-router-dom';
-import { URL_PATH } from '../../../utils/routes/constants/routeslinks';
+import { URL_PATH } from '../../../config/constants/routeslinks';
 
 const {DASHBOARD, CREATE_POLL, MANAGE_POLL, RESULTS}=URL_PATH;
 

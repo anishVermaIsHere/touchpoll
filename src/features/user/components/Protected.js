@@ -1,6 +1,6 @@
 import React from 'react'
 import { Navigate, Outlet} from 'react-router-dom';
-import { URL_PATH } from '../../../utils/routes/constants/routeslinks';
+import { URL_PATH } from '../../../config/constants/routeslinks';
 
 
 const Protected = ({localData}) => {

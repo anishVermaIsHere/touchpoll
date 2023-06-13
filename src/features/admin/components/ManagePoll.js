@@ -2,7 +2,7 @@ import React, { useState} from 'react';
 import {Box, Container, Typography, Tab, Tabs} from '@mui/material';
 import PropTypes from 'prop-types';
 import { NavLink, Outlet} from 'react-router-dom';
-import { URL_PATH } from '../../../utils/routes/constants/routeslinks';
+import { URL_PATH } from '../../../config/constants/routeslinks';
 
 const { CREATE_POLL, ALL_POLLS } = URL_PATH;
 
