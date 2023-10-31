@@ -21,8 +21,8 @@ export const CONSTANTS={
 	},
 	USER_MENU:{
 		SIGNOUT:'Sign out',
-		ADD_POLL:'Create poll',
-		ACCOUNT:'Profile'
+		ACCOUNT:'Profile',
+		DASHBOARD:'Dashboard'
 	},
 	ERROR:{
 		CLIENT:{

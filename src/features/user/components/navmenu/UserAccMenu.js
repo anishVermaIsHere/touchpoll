@@ -2,13 +2,14 @@ import React from 'react';
 import {Button, Menu, MenuItem} from '@mui/material';
 import {AiFillCaretDown} from 'react-icons/ai';
 import { CONSTANTS } from '../../../../utils/constants/constants';
-import { PROFILE } from '../../../../config/routes/AppRoutes';
+import { URL_PATH } from '../../../../config/constants/routeslinks';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 
 export default function UserAccMenu(props) {
-  const {SIGNOUT,ACCOUNT}=CONSTANTS.USER_MENU;
+  const {SIGNOUT,ACCOUNT,DASHBOARD}=CONSTANTS.USER_MENU;
+  const {PROFILE}=URL_PATH;
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -43,6 +44,9 @@ export default function UserAccMenu(props) {
           'aria-labelledby': 'basic-button',
         }}
       >
+        <MenuItem sx={{fontSize:'0.9rem'}} component={NavLink} to={`admin/${DASHBOARD}`} onClick={handleClose}>
+          {DASHBOARD}
+        </MenuItem>
         <MenuItem sx={{fontSize:'0.9rem'}} component={NavLink} to={`admin/account/${auth.name}/${PROFILE}`} onClick={handleClose}>
           {ACCOUNT}
         </MenuItem>

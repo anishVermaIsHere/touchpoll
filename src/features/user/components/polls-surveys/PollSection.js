@@ -78,7 +78,8 @@ const PollSection = () => {
                       sx={{
                         margin: "0.5rem 0.4rem",
                         minHeight:'100px',
-                        backgroundColor: "#bbdff366",
+                        backgroundColor: "#ebeff266",
+                        border:'1px solid #d8d5d5',
                         "&:hover": {
                           fontSize: "1rem",
                           boxShadow: "0 5px 5px rgb(70, 110, 135)",
@@ -86,10 +87,10 @@ const PollSection = () => {
                         },
                       }}
                     >
-                      <Typography align="center" variant="p" color="primary">
+                      <Typography align="center" component="p" variant="p" sx={{marginTop:'1rem'}} color="primary">
                         {poll.question}
                       </Typography>
-                      <p>Expire on: {poll.expiry_date.substr(0, 10)}</p>
+                      <Typography align="center" component="p" variant="p" sx={{paddingTop:'1rem'}}>Expire on: {poll.expiry_date.substr(0, 10)}</Typography>
                     </Item>
                   </NavLink>
                 </Grid>

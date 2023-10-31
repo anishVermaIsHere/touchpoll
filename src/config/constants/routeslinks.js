@@ -41,7 +41,7 @@ export const MAIN_MENU=[
         icon:GroupsIcon
     },
     {
-        type:1,
+        type:2,
         title:'Dashboard',
         link:`/admin/${URL_PATH.DASHBOARD}`,
         icon:DashboardIcon
@@ -62,7 +62,7 @@ export const SIDEBAR_MENU=[
         icon:GroupsIcon
     },
     {
-        type:1,
+        type:2,
         title:'Dashboard',
         link:`/admin/${URL_PATH.DASHBOARD}`,
         icon:DashboardIcon

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { theme } from './SignUp';
@@ -17,6 +17,7 @@ import Container from '@mui/material/Container';
 import Logo from '../../../assets/images/hand-click-1299.svg';
 import { ThemeProvider } from '@mui/material/styles';
 import GoogleIcon from '@mui/icons-material/Google';
+import CircularProgress from '@mui/material/CircularProgress';
 import FaFacebookF from '@mui/icons-material/Facebook';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { URL_PATH } from '../../../config/constants/routeslinks';
@@ -29,7 +30,18 @@ const { TITLE, GOOGLE,HOME, FB, SIGNIN } = CONSTANTS.SIGNIN;
 const { POLL_SECTION, SIGNUP } = URL_PATH;
 
 
+
+const LoadingSpinner=()=>{
+  return (
+    <Box sx={{ display: 'flex', justifyContent:'center',alignItems:'center',minHeight:'100vh'}}>
+      <CircularProgress />
+    </Box>
+  );
+}
+
+
 export default function SignIn() {
+  const [loading,setLoading]=useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const message = useSelector(state => state.userSlice.auth.message);
@@ -42,7 +54,7 @@ export default function SignIn() {
     validationSchema: signInSchema,
     onSubmit: (values, { resetForm }) => {
       const res = dispatch(signIn(values));
-      
+      setLoading(true);
       resetForm({ values: '' });
     }
   });
@@ -110,6 +122,7 @@ export default function SignIn() {
   useEffect(() => {
     if(localStorage.getItem('user-info')){
       navigate(POLL_SECTION);
+      setLoading(false);
     }
     else {
       dispatch(handleSnackBar({ snackOpen: false, snackType: "success", snackMessage: null }));
@@ -118,8 +131,10 @@ export default function SignIn() {
 
 
 
-  return (
-    <ThemeProvider theme={theme}>
+  return loading?
+      <LoadingSpinner />
+      :
+      <ThemeProvider theme={theme}>
       <Container component="div" maxWidth="xs" sx={theme.formStyle.container}>
         <CssBaseline />
         <Box sx={theme.formStyle.box}>
@@ -210,5 +225,4 @@ export default function SignIn() {
         </Box>
       </Container>
     </ThemeProvider>
-  );
 }

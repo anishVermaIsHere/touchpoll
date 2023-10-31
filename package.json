@@ -1,6 +1,8 @@
 {
-  "name": "demoapp",
-  "version": "0.1.0",
+  "name": "touchpoll",
+  "version": "0.3.0",
+  "author":"Anish Verma",
+  "githublink":"github.com/anishvermaishere",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.4",

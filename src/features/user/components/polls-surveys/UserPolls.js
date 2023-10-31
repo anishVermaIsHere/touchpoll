@@ -212,15 +212,16 @@ const UserPolls = () => {
                   {poll.options.map((opt, index) => {
                     return (
                       <>
-                        <Paper key={'option'+index} elevation={3}
+                        <Paper key={'option'+index}
                           sx={{
                             margin: '0.5rem 0',
-                            padding: '0.8rem',
+                            padding: '0.5rem',
                             width: { sm: "auto", lg: 400 },
                             display: 'flex',
                             justifyContent: 'spaceBetween',
                             flexDirection: 'column',
-                            background: '#eeeeee5c',
+                            background:'#f0f0f03d',
+                            border: '1px solid #eee',
                           }}>
                           <FormControlLabel key={index} value={opt.option}
                             control={<Radio

@@ -73,6 +73,7 @@ const CreatePoll = () => {
         }
     });
 
+    console.log('user form',formik.values)
     useEffect(() => {
         uploadFile()
     }, [image]);

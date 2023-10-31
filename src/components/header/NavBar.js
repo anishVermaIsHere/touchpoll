@@ -76,7 +76,7 @@ export default function NavBar({ handleDrawerToggle, mobileOpen, signOut }) {
           </Box>
           {matches &&
             MAIN_MENU.map((route, index) => {
-              return (
+              return route.type==1? (
                 <Button
                   key={index}
                   variant="outlined"
@@ -86,7 +86,7 @@ export default function NavBar({ handleDrawerToggle, mobileOpen, signOut }) {
                 >
                   {route.title}
                 </Button>
-              );
+              ):"";
             })}
 
           {!matches && auth.token ? (
@@ -118,7 +118,7 @@ export default function NavBar({ handleDrawerToggle, mobileOpen, signOut }) {
                 to={URL_PATH.SIGNIN}
                 sx={menuCls}
               >
-                {SIGNIN.SIGNIN}
+                {SIGNIN.SIGNIN} 
               </Button>
               <Button
                 variant="contained"
