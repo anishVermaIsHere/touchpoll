@@ -6,6 +6,7 @@
 
 2. Then create **`.env`** file into your app/project folder not in **`src`** which you created, open the **`.env`** file and create these variables in the file 
 **`REACT_APP_BASEURL='https://aggressive-gray-wear.cyclic.app'
+REACT_APP_DOMAIN='http://localhost:3000'
 REACT_APP_NAME='Touchpoll'
 `** and save it.
 
