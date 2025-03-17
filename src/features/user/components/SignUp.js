@@ -13,7 +13,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { userSignup } from '../../../utils/services/api/user-api';
 import { grey} from '@mui/material/colors';
 import { useDispatch } from 'react-redux';
-import { handleSnackBar } from '../../../utils/redux/slices/snackbar/snackbar-slice';
+import { handleSnackBar } from '../../../lib/redux/slices/snackbar/snackbar-slice';
 
 
 const {SIGNUP}=CONSTANTS;

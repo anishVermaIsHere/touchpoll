@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchPolls, fetchOnePoll, pollCreate, pollSubmit, pollEdit } from '../../../services/api/polls-api';
+import { fetchPolls, fetchOnePoll, pollCreate, pollSubmit, pollEdit } from '../../../../utils/services/api/polls-api';
 
 
 // state
@@ -66,12 +66,7 @@ const pollSlice = createSlice({
       state.loading = true
     })
     builder.addCase(getPolls.fulfilled, (state, action) => {
-      const sortedData = [...action.payload.polls].sort((x, y) => {
-        const date1 = y.created_date.substr(0, 10);
-        const date2 = x.created_date.substr(0, 10);
-        return new Date(date1) - new Date(date2) ? -1 : 1;
-      });
-      state.allPolls = sortedData;
+      state.allPolls = action.payload.polls;
       state.loading = false
     })
     builder.addCase(getPolls.rejected, (state, action) => {

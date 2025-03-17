@@ -10,7 +10,7 @@ import dayjs from 'dayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { handleSnackBar } from '../../../utils/redux/slices/snackbar/snackbar-slice';
+import { handleSnackBar } from '../../../lib/redux/slices/snackbar/snackbar-slice';
 import { pollCreate } from '../../../utils/services/api/polls-api';
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../../../utils/services/firebase/auth/config";
@@ -73,7 +73,6 @@ const CreatePoll = () => {
         }
     });
 
-    console.log('user form',formik.values)
     useEffect(() => {
         uploadFile()
     }, [image]);

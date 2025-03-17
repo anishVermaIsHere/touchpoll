@@ -17,27 +17,21 @@ import Container from '@mui/material/Container';
 import Logo from '../../../assets/images/hand-click-1299.svg';
 import { ThemeProvider } from '@mui/material/styles';
 import GoogleIcon from '@mui/icons-material/Google';
-import CircularProgress from '@mui/material/CircularProgress';
 import FaFacebookF from '@mui/icons-material/Facebook';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { URL_PATH } from '../../../config/constants/routeslinks';
 import { getAuth, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
-import { signIn } from '../../../utils/redux/slices/user/user-slice';
+import { signIn } from '../../../lib/redux/slices/user/user-slice';
 import { useDispatch, useSelector } from 'react-redux';
-import { handleSnackBar } from '../../../utils/redux/slices/snackbar/snackbar-slice';
+import { handleSnackBar } from '../../../lib/redux/slices/snackbar/snackbar-slice';
+import LoadingSpinner from '../../../utils/widgets/LoadingSpinner';
+import { getAuthStorage, setAuthStorage } from '../../../utils';
 
-const { TITLE, GOOGLE,HOME, FB, SIGNIN } = CONSTANTS.SIGNIN;
+
+
+const { TITLE, GOOGLE, FB, SIGNIN } = CONSTANTS.SIGNIN;
 const { POLL_SECTION, SIGNUP } = URL_PATH;
 
-
-
-const LoadingSpinner=()=>{
-  return (
-    <Box sx={{ display: 'flex', justifyContent:'center',alignItems:'center',minHeight:'100vh'}}>
-      <CircularProgress />
-    </Box>
-  );
-}
 
 
 export default function SignIn() {
@@ -48,8 +42,8 @@ export default function SignIn() {
   const auth = useSelector(state => state.userSlice.auth);
   const formik = useFormik({
     initialValues: {
-      email: '',
-      password: ''
+      email: 'max@max.com',
+      password: 'max12345'
     },
     validationSchema: signInSchema,
     onSubmit: (values, { resetForm }) => {
@@ -68,8 +62,8 @@ export default function SignIn() {
       .then((result) => {
         // The signed-in user info.
         const user = result.user;
-        localStorage.setItem('user-info', auth.currentUser);
-
+        setAuthStorage('user-info', auth.currentUser);
+        
         // This gives you a Facebook Access Token. You can use it to access the Facebook API.
         const credential = FacebookAuthProvider.credentialFromResult(result);
         const accessToken = credential.accessToken;
@@ -101,11 +95,11 @@ export default function SignIn() {
         navigate(POLL_SECTION);
         // The signed-in user info.
         const user = result.user;
-        localStorage.setItem('user-info', JSON.stringify({
+        setAuthStorage('user-info', {
           name: user.displayName,
           email: user.email,
           token: user.accessToken
-        }));
+        });
         // ...
       }).catch((error) => {
         // Handle Errors here.
@@ -120,7 +114,8 @@ export default function SignIn() {
   }
 
   useEffect(() => {
-    if(localStorage.getItem('user-info')){
+    const authStorage = getAuthStorage();
+    if(authStorage?.token){
       navigate(POLL_SECTION);
       setLoading(false);
     }

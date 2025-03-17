@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { userSignin, userSignup } from "../../../services/api/user-api";
+import { userSignin, userSignup } from "../../../../utils/services/api/user-api";
+import { setAuthStorage } from "../../../../utils";
 
 
 
@@ -62,11 +63,11 @@ const userSlice = createSlice({
             // window.location.reload();
             state.auth.message = action.payload.message;
             state.auth.name = action.payload.name;
-            localStorage.setItem('user-info', JSON.stringify({
+            setAuthStorage('user-info', {
                 name: action.payload.name,
                 email: action.payload.email,
                 token: action.payload.token,
-            }));
+            });
             state.loading = false;
         })
         builder.addCase(signIn.rejected, (state, action) => {

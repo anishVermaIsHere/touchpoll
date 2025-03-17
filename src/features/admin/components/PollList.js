@@ -12,13 +12,15 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import LinkIcon from '@mui/icons-material/Link';
 import CancelIcon from '@mui/icons-material/Cancel';
-import { getPolls} from '../../../utils/redux/slices/polls/poll-slice';
+import { getPolls} from '../../../lib/redux/slices/polls/poll-slice';
 import { pollDelete } from '../../../utils/services/api/polls-api';
 import { NavLink } from 'react-router-dom';
 import EmptyPage from '../../../utils/widgets/EmptyPage';
-import { handleSnackBar } from '../../../utils/redux/slices/snackbar/snackbar-slice';
+import { handleSnackBar } from '../../../lib/redux/slices/snackbar/snackbar-slice';
 import { URL_PATH } from '../../../config/constants/routeslinks';
 import copy from 'copy-to-clipboard';
+import AppConfig from '../../../config';
+import dayjs from 'dayjs';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -140,7 +142,7 @@ const PollList = () => {
     }
 
     const copyLink=(event,id)=>{
-        const link=`${process.env.REACT_APP_DOMAIN}${USER_POLL}/${id}`
+        const link=`${AppConfig.appDomain}${USER_POLL}/${id}`
         copy(link);
         dispatch(handleSnackBar({ snackOpen: true, snackType: "info", snackMessage: "Link Copied"}))
     }
@@ -171,7 +173,7 @@ const PollList = () => {
                         border: '1px solid #ddd',
                         display: 'flex',
                         justifyContent: 'space-between',
-                        alignItems: 'center'
+                        alignItems: 'start'
                     }}
                 >
                     <Box>
@@ -179,7 +181,7 @@ const PollList = () => {
                             {poll.question}
                         </Typography>
                         <Typography fullWidth component='small' variant='small'>
-                            voted: {poll.options.reduce((p,c)=>p+c.votes,0)} 
+                            votes: {poll.options.reduce((p,c)=>p+c.votes,0)} 
                         </Typography>
                         {new Date(poll.expiry_date)>new Date()?
                         <Typography sx={{ display: 'block' }} component='small' variant='small'>
@@ -190,17 +192,16 @@ const PollList = () => {
                             status: expired <CancelIcon sx={{ verticalAlign: 'middle', fontSize: '1rem', height: '1rem', width: '1rem' }} color='error' />
                         </Typography>}
                         <Typography component='small' variant='small'>
-                            expired on: {poll.expiry_date.substr(0, 10)}
+                            expired on: {dayjs(poll.expiry_date).format('MMM D, YYYY')}
                         </Typography>
                     </Box>
 
                     <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: { xs: 'column', md: 'column' } }}>
                         <LinkIcon size='small' onClick={(e)=>copyLink(e,poll._id)} color='primary' sx={{ marginLeft: '0.3rem', cursor: 'pointer' }} />
-                        {poll.voted==0?
-                        <NavLink to={`/admin/${MANAGE_POLL}/${EDIT_POLL}/${poll._id}`} title="Edit">
-                            <EditIcon size='small' color='primary' sx={{ cursor: 'pointer' }} />
-                        </NavLink>:
-                        ""}
+                        {poll.voted===0?
+                            <NavLink to={`/admin/${MANAGE_POLL}/${EDIT_POLL}/${poll._id}`} title="Edit">
+                                <EditIcon size='small' color='primary' sx={{ cursor: 'pointer' }} />
+                            </NavLink> : "" }
                             <DeleteIcon size='small' color='error' sx={{ marginLeft: '0.3rem', cursor: 'pointer' }} 
                             onClick={(e)=>deletePoll(poll._id)} />
                     </Box>
@@ -212,7 +213,7 @@ const PollList = () => {
         <>
            <Box sx={{ maxWidth: '100%'}}>
                 <Typography component="h2" variant="h6" color="primary" gutterBottom>
-                    All Poll
+                    All Polls
                 </Typography>
                 <Search sx={{margin:{xs:'0'}}}>
                     <SearchIconWrapper>

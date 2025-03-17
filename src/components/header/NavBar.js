@@ -17,12 +17,13 @@ import { URL_PATH, MAIN_MENU } from "../../config/constants/routeslinks";
 import { CONSTANTS } from "../../utils/constants/constants";
 import UserAccMenu from "../../features/user/components/navmenu/UserAccMenu";
 import { useSelector } from "react-redux";
+import { getAuthStorage } from "../../utils";
 
 export const navbarColor = "linear-gradient(rgb(8, 64, 90),rgb(20, 48, 66))";
 
 export default function NavBar({ handleDrawerToggle, mobileOpen, signOut }) {
   const matches = useMediaQuery("(min-width:765px)");
-  const auth = useSelector((state) => state.userSlice.auth);
+  const auth = getAuthStorage();
 
   const { SIGNIN, SIGNUP } = CONSTANTS;
 
@@ -33,9 +34,6 @@ export default function NavBar({ handleDrawerToggle, mobileOpen, signOut }) {
     color: "#fff",
     textTransform: "none",
   };
-
-  const localData = localStorage.getItem("user-info");
-  const authUser = JSON.parse(localData);
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -74,9 +72,9 @@ export default function NavBar({ handleDrawerToggle, mobileOpen, signOut }) {
               <span>Touchpoll</span>
             </NavLink>
           </Box>
-          {matches &&
+          {matches && auth?.token && (
             MAIN_MENU.map((route, index) => {
-              return route.type==1? (
+              return (
                 <Button
                   key={index}
                   variant="outlined"
@@ -86,15 +84,25 @@ export default function NavBar({ handleDrawerToggle, mobileOpen, signOut }) {
                 >
                   {route.title}
                 </Button>
-              ):"";
-            })}
+              );
+            })
+          )}
 
-          {!matches && auth.token ? (
+          <Button
+            variant="outlined"
+            color="primary"
+            component={NavLink}
+            to={URL_PATH.ABOUT}
+            sx={menuCls}
+          >
+            About us
+          </Button>
+
+          {!matches && auth?.token ? (
             <Box>
               <Typography
                 component="medium"
                 variant="medium"
-                color="success"
                 sx={{
                   background: "green",
                   padding: "0.1rem 0.5rem",
@@ -102,23 +110,23 @@ export default function NavBar({ handleDrawerToggle, mobileOpen, signOut }) {
                 }}
                 ml={1}
               >
-                {auth.name}
+                {auth?.name}
               </Typography>
             </Box>
           ) : (
             ""
           )}
 
-          {(matches && localData == undefined) || null ? (
+          {(matches && !auth?.token) || null ? (
             <>
               <Button
-                variant="contained"
+                variant="outlined"
                 color="primary"
                 component={NavLink}
                 to={URL_PATH.SIGNIN}
                 sx={menuCls}
               >
-                {SIGNIN.SIGNIN} 
+                {SIGNIN.SIGNIN}
               </Button>
               <Button
                 variant="contained"
@@ -134,7 +142,7 @@ export default function NavBar({ handleDrawerToggle, mobileOpen, signOut }) {
             matches && (
               <UserAccMenu
                 style={menuCls}
-                username={authUser.name}
+                username={auth?.name}
                 signOut={signOut}
               />
             )

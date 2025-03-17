@@ -1,7 +1,6 @@
-import React from 'react'
 import { Alert, Snackbar} from '@mui/material';
 import { useSelector,useDispatch } from 'react-redux';
-import { handleSnackBar } from '../redux/slices/snackbar/snackbar-slice';
+import { handleSnackBar } from '../../lib/redux/slices/snackbar/snackbar-slice';
 
 const AlertBox = () => {
   const snackOpen=useSelector(state=>state.snackBarSlice.open);
