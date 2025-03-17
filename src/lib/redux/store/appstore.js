@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import persistReducer from 'redux-persist/es/persistReducer.js';
-import storage from 'redux-persist/lib/storage';
+// import persistReducer from 'redux-persist/es/persistReducer.js';
+// import storage from 'redux-persist/lib/storage';
 import pollSlice from '../slices/polls/poll-slice.js';
 import userSlice from '../slices/user/user-slice.js';
 import snackBarSlice from '../slices/snackbar/snackbar-slice.js';

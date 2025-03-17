@@ -1,7 +1,12 @@
 import axios from "axios";
+import AppConfig from "../../config";
+
+const axiosInstance = axios.create({
+    baseURL: AppConfig.baseUrl,
+});
+
 export function tokenInterceptor() {
-    axios.defaults.baseURL = process.env.REACT_APP_BASEURL;
-    const requestInterceptor = axios.interceptors.request.use(
+    const requestInterceptor = axiosInstance.interceptors.request.use(
         (request) => {
             let localData = localStorage.getItem('user-info');
             let authToken = '';
@@ -16,7 +21,7 @@ export function tokenInterceptor() {
             return Promise.reject(err);
         }
     );
-    const responseInterceptor = axios.interceptors.response.use(
+    const responseInterceptor = axiosInstance.interceptors.response.use(
         (response) => {
             return response;
         },
@@ -29,3 +34,5 @@ export function tokenInterceptor() {
     //     console.log("Request Interceptor Eject .....");
     // }, 10000);
 }
+
+export default axiosInstance;

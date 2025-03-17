@@ -3,14 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
-import store from './utils/redux/store/appstore.js';
+import store from './lib/redux/store/appstore.js';
 import { BrowserRouter as Router } from 'react-router-dom';
 import ErrorBoundary from './components/error/ErrorBoundary';
 import { tokenInterceptor } from './utils/services/interceptor';
+import AppConfig from './config/index.js';
 
 
 tokenInterceptor();
 const root = ReactDOM.createRoot(document.getElementById('root'));
+document.title=AppConfig.appName;
 
 root.render(
   <ErrorBoundary>

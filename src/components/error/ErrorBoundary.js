@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import Error from '../../utils/widgets/Error';
 export default class ErrorBoundary extends Component {
     constructor(props){

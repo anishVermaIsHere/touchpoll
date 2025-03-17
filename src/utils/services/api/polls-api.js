@@ -1,13 +1,11 @@
-import axios from 'axios';
-import {URL_PATH} from '../../routes/constants/routeslinks';
+import axiosInstance from '../interceptor';
+import {URL_PATH} from '../../../config/constants/routeslinks';
 
 const {ALL_POLLS, MANAGE_POLL, CREATE_POLL, EDIT_POLL,DELETE_POLL, SUBMIT_POLL, USER_POLL}=URL_PATH;
 
-axios.defaults.baseURL=process.env.REACT_APP_BASEURL;
-
 // fetch all polls from database
 export const fetchPolls=()=>{
-    const response=axios({ 
+    const response=axiosInstance({ 
         method:'GET',
         url:`admin/${MANAGE_POLL}/${ALL_POLLS}`
     });
@@ -17,7 +15,7 @@ export const fetchPolls=()=>{
 // fetch single poll to edit
 export const fetchOnePoll=async(data)=>{
     const {id}=data;
-    const response=await axios({ 
+    const response=await axiosInstance({ 
         method:'GET',
         url:`${USER_POLL}/${id}`
     });
@@ -27,7 +25,7 @@ export const fetchOnePoll=async(data)=>{
 // post submitted polls
 export const pollSubmit=(poll)=>{
     const {pollid}=poll;
-    const response= axios({
+    const response= axiosInstance({
         method:'POST', 
         url:`${SUBMIT_POLL}/${pollid}`, 
         data:poll
@@ -36,7 +34,7 @@ export const pollSubmit=(poll)=>{
 }
 
 export const pollCreate=(formData)=>{
-    const response=axios({
+    const response=axiosInstance({
         method:'POST', 
         url:`admin/${MANAGE_POLL}/${CREATE_POLL}`, 
         data:formData
@@ -46,7 +44,7 @@ export const pollCreate=(formData)=>{
 
 export const pollEdit=(data)=>{
     const {formData,id}=data;
-    const response=axios({
+    const response=axiosInstance({
         method:'PUT', 
         url:`admin/${MANAGE_POLL}/${EDIT_POLL}/${id}`, 
         data:formData
@@ -55,7 +53,7 @@ export const pollEdit=(data)=>{
 }
 
 export const pollDelete=(id)=>{
-    const response=axios({
+    const response=axiosInstance({
         method:'DELETE', 
         url:`admin/${MANAGE_POLL}/${DELETE_POLL}/${id}`, 
     });

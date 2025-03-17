@@ -1,16 +1,14 @@
-import React, { useEffect } from 'react';
+import { useState } from 'react';
 import { Paper, Box, Typography, Button, Divider, TextField } from '@mui/material';
 import { useFormik } from 'formik';
-import { signUpSchema } from '../../../../utils/validation/validation-schema';
 import EditIcon from '@mui/icons-material/Edit';
-import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CloseIcon from '@mui/icons-material/Close';
-import { useNavigate, useHistory } from 'react-router-dom';
-import { URL_PATH } from '../../../../utils/routes/constants/routeslinks';
+import { useNavigate } from 'react-router-dom';
+import { URL_PATH } from '../../../../config/constants/routeslinks';
 import { useSelector, useDispatch } from 'react-redux';
 import { changePasswordSchema } from '../../../../utils/validation/validation-schema';
-import { handleSnackBar } from '../../../../utils/redux/slices/snackbar/snackbar-slice';
+import { handleSnackBar } from '../../../../lib/redux/slices/snackbar/snackbar-slice';
 import { changePassword } from '../../../../utils/services/api/user-api';
 
 
@@ -18,7 +16,7 @@ const Profile = () => {
     const auth = useSelector(state => state.userSlice.auth);
     const dispatch = useDispatch();
     const navigate=useNavigate();
-    const [edit, setEdit] = React.useState(true);
+    const [edit, setEdit] = useState(true);
 
     const formik = useFormik({
         initialValues: {
@@ -44,10 +42,6 @@ const Profile = () => {
             // resetForm({ values: '' });
         }
     });
-
-    useEffect(()=>{
-
-    })
 
     const toggleEdit = (val) => {
         setEdit(val);
@@ -100,9 +94,9 @@ const Profile = () => {
                             <Typography align="left" component='p' variant='p' color='primary' sx={{ flexGrow: 1 }}>
                                 Change Password
                             </Typography>
-                            {edit ? <EditIcon size='small' color='primary' sx={{ cursor: 'pointer' }} onClick={(e) => toggleEdit(false)} />
+                            {edit ? <EditIcon size='small' color='default' sx={{ cursor: 'pointer' }} onClick={(e) => toggleEdit(false)} />
                                 :
-                                <CancelPresentationIcon size='small' color='error' sx={{ cursor: 'pointer' }} onClick={(e) => toggleEdit(true)} />}
+                                <CloseIcon size='small' color='default' sx={{ cursor: 'pointer' }} onClick={(e) => toggleEdit(true)} />}
                         </Box>
 
                         {!edit && <>

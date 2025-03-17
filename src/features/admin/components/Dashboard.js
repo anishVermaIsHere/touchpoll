@@ -14,7 +14,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { mainListItems } from './listItems';
 import { useSelector } from 'react-redux';
-import { ACCOUNT,PROFILE} from '../../../utils/routes/AppRoutes';
+import { ACCOUNT,PROFILE} from '../../../config/routes/AppRoutes';
 import { activeStyle } from './listItems';
 
 

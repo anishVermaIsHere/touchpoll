@@ -5,9 +5,9 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 export const URL_PATH={
     HOME:'/',
-    SIGNIN:'/user/signin',
-    SIGNUP:'/user/register',
-    SIGNOUT:'/user/signout',
+    SIGNIN:'/auth/signin',
+    SIGNUP:'/auth/register',
+    SIGNOUT:'/auth/signout',
     ABOUT:'/about',
     API_BASE_PATH:'/api/v1/poll',
     GET_SAVED_POLL:'result',
@@ -29,19 +29,13 @@ export const URL_PATH={
 
 export const MAIN_MENU=[
     {
-        type:1,
+        type:2,
         title:'Polls',
         link:URL_PATH.POLL_SECTION,
         icon:BarChartIcon
     },
     {
-        type:1,
-        title:'About us',
-        link:URL_PATH.ABOUT,
-        icon:GroupsIcon
-    },
-    {
-        type:1,
+        type:2,
         title:'Dashboard',
         link:`/admin/${URL_PATH.DASHBOARD}`,
         icon:DashboardIcon
@@ -50,7 +44,7 @@ export const MAIN_MENU=[
 
 export const SIDEBAR_MENU=[
     {
-        type:1,
+        type:2,
         title:'Polls',
         link:URL_PATH.POLL_SECTION,
         icon:BarChartIcon
@@ -62,7 +56,7 @@ export const SIDEBAR_MENU=[
         icon:GroupsIcon
     },
     {
-        type:1,
+        type:2,
         title:'Dashboard',
         link:`/admin/${URL_PATH.DASHBOARD}`,
         icon:DashboardIcon

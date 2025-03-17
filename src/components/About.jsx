@@ -1,17 +1,17 @@
 import React from 'react';
 import { Box, Container, Paper, CardMedia, Typography } from '@mui/material';
-import about from '../assets/images/about.avif';
+import about from '../assets/images/about.png';
 
 
 const About = () => {
   return (
     <Container>
-      <Typography variant="h3" p={2}>
+      <Typography variant="h3" mb={2}>
         About us 
       </Typography>
 
       <Box>
-        <Paper elevation={1} sx={{ p: 3, display: 'flex', flexDirection:{xs:"column", md:"row"} }}>
+        <Paper elevation={0} sx={{  display: 'flex', flexDirection:{xs:"column", md:"row"} }}>
           <CardMedia
             component="img"
             height="300"
@@ -32,7 +32,6 @@ const About = () => {
           </Box>
         </Paper>
       </Box>
-
     </Container>
   )
 }

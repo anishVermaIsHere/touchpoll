@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container, Divider, Paper, MenuItem, MenuList, ListItemIcon } from '@mui/material';
-import { SIDEBAR_MENU, URL_PATH } from '../../utils/routes/constants/routeslinks';
+import { SIDEBAR_MENU, URL_PATH } from '../../config/constants/routeslinks';
 import { NavLink } from 'react-router-dom';
-import { CONSTANTS } from '../../utils/constants/constants';
+import {CONSTANTS} from '../../utils/constants/constants';
 import { useSelector } from 'react-redux';
 import { activeStyle } from '../../features/admin/components/listItems';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -10,9 +10,10 @@ import LoginIcon from '@mui/icons-material/Login';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
+
 const Drawer = (props) => {
   const auth = useSelector(state => state.userSlice.auth);
-  const { SIGNIN, SIGNUP, USER_MENU } = CONSTANTS;
+  const { SIGNIN, SIGNUP, USER_MENU }= CONSTANTS;
   const drawer = {
     position: 'fixed',
     bottom: 0,
@@ -24,8 +25,8 @@ const Drawer = (props) => {
 
   return <>
     <Container sx={drawer}>
-      <Paper elevation={4} sx={{ height: '100%', borderRadius: '0' }}>
-        <MenuList sx={{ paddingTop: 8 }}>
+      <Paper elevation={4} sx={{ height: '100%', borderRadius: '0',backgroundColor:'#1a282ef7',color:'#fff' }}>
+        <MenuList sx={{ paddingTop: 8}}>
           {auth.token == null || undefined ?
             <>
               <MenuItem
@@ -91,7 +92,7 @@ const Drawer = (props) => {
                 component={NavLink}
                 to={route.link}
                 onClick={() => props.handleDrawerToggle(false)}
-                sx={{ paddingLeft: 5 }}
+                sx={{ paddingLeft: 5}}
               >
                 <ListItemIcon sx={{ color: 'inherit' }}>
                   {<route.icon />}
