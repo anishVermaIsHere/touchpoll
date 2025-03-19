@@ -1,5 +1,7 @@
 # Touchpoll 
-## Polling App in MERN
+## Polling App in React (Frontend)
+## Poll REST API [Backend](https://github.com/anishVermaIsHere/polls-api)
+
 
 **To run this app follow these steps:**
 
