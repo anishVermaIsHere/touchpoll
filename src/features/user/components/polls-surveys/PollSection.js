@@ -84,7 +84,7 @@ const PollSection = () => {
           <Grid container spacing={2}>
             {allPolls?.map((poll, index) => (
               <Grid item xs={12} sm={6} md={4} lg={3} key={poll.uid}>
-                <NavLink to={`/user/poll/${poll._id}`}>
+                <NavLink to={`/user/polls/${poll._id}`}>
                   <Item
                     sx={{
                       height: HEIGHT,

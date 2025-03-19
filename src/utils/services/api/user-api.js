@@ -19,7 +19,7 @@ export const userSignin = (data) => {
 export const changePassword = (data) => {
   const res = axiosInstance({
     method: "PUT",
-    url: `admin/${ACCOUNT}/${PROFILE}/${CHANGE_PWD}`,
+    url: `${ACCOUNT}/${PROFILE}/${CHANGE_PWD}`,
     data: data,
   });
   return res;

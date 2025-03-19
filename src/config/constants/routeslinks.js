@@ -11,7 +11,7 @@ export const URL_PATH={
     ABOUT:'/about',
     API_BASE_PATH:'/api/v1/poll',
     GET_SAVED_POLL:'result',
-    SUBMIT_POLL:'/submit/poll',
+    SUBMIT_POLL:'/submit/polls',
     ACCOUNT:'account',
     PROFILE:'profile',
     CHANGE_PWD:'change-password',
@@ -24,7 +24,7 @@ export const URL_PATH={
     EDIT_POLL:'edit',
     ALL_POLLS:'polls',
     POLL_SECTION:'/user/polls',
-    USER_POLL:'/user/poll'
+    USER_POLL:'/user/polls'
 }
 
 export const MAIN_MENU=[
